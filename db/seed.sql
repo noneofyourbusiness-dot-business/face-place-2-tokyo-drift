@@ -36,7 +36,7 @@ CREATE TABLE posts (
 );
 CREATE TABLE post_img (
   post_img_id SERIAL PRIMARY KEY,
-  img TEXT,
+  img TEXT [], 
   post_id INT REFERENCES posts(post_id)
 );
 CREATE TABLE comments (
@@ -47,7 +47,7 @@ CREATE TABLE comments (
 );
 CREATE TABLE comment_img (
   comment_img_id SERIAL PRIMARY KEY,
-  img TEXT,
+  img TEXT [],
   com_id INT REFERENCES comments(com_id)
 );
 CREATE TABLE chat (
@@ -63,7 +63,7 @@ CREATE TABLE chat_message (
 );
 CREATE TABLE message_img (
   message_img_id SERIAL PRIMARY KEY,
-  img TEXT,
+  img TEXT [],
   message_id INT REFERENCES chat_message(message_id)
 );
 CREATE TABLE user_chat (
