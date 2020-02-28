@@ -36,7 +36,7 @@ CREATE TABLE posts (
 );
 CREATE TABLE post_img (
   post_img_id SERIAL PRIMARY KEY,
-  img TEXT,
+  img TEXT, 
   post_id INT REFERENCES posts(post_id)
 );
 CREATE TABLE comments (
