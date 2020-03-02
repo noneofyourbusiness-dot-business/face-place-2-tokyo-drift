@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Header extends Component {
   state = {
-    userInfo: [],
-  }
+    userInfo: []
+  };
   render() {
-    return (
-      <div>
-        
-      </div>
-    );
+    return <div></div>;
   }
 }
 

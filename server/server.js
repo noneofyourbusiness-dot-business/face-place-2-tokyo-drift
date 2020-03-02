@@ -6,11 +6,7 @@ const authCtrl = require("./controllers/authController.js");
 const nmlrCtrl = require("./controllers/nodemailerController.js");
 const s3Ctrl = require("./controllers/s3Controller.js");
 
-const {
-  SESSION_SECRET,
-  SERVER_PORT,
-  CONNECTION_STRING
-} = process.env;
+const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
 
 const app = express();
 
@@ -39,7 +35,7 @@ app.use(
 app.post("/api/send", nmlrCtrl.nodemailer);
 
 // AWS S3 \\
-app.get("/sign-s3", s3Ctrl.run)
+app.get("/sign-s3", s3Ctrl.run);
 
 // MASSIVE \\
 massive(CONNECTION_STRING).then(db => {
