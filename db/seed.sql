@@ -1,4 +1,7 @@
+// USER TABLES
+
 CREATE TABLE users (user_id SERIAL PRIMARY KEY);
+
 CREATE TABLE user_verif (
   verif_id SERIAL PRIMARY KEY,
   email VARCHAR(60),
@@ -28,6 +31,9 @@ CREATE TABLE friends (
   user_id INT REFERENCES users(user_id),
   friend_id INT REFERENCES users(user_id)
 );
+
+// POST TABLES
+
 CREATE TABLE posts (
   post_id SERIAL PRIMARY KEY,
   postcont TEXT,
@@ -39,6 +45,9 @@ CREATE TABLE post_img (
   img TEXT, 
   post_id INT REFERENCES posts(post_id)
 );
+
+// COMMENT TABLES 
+
 CREATE TABLE comments (
   com_id SERIAL PRIMARY KEY,
   com_cont TEXT,
@@ -50,6 +59,9 @@ CREATE TABLE comment_img (
   img TEXT,
   com_id INT REFERENCES comments(com_id)
 );
+
+// CHAT TABLES 
+
 CREATE TABLE chat (
   chat_id SERIAL PRIMARY KEY,
   title VARCHAR(50)
