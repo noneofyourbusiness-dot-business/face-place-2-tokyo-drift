@@ -5,6 +5,8 @@ const session = require("express-session");
 const authCtrl = require("./controllers/authController.js");
 const nmlrCtrl = require("./controllers/nodemailerController.js");
 const s3Ctrl = require("./controllers/s3Controller.js");
+const postCtrl = require("./controllers/postController.js");
+const comCtrl = require ("./controllers/comController.js");
 
 const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
 
@@ -30,6 +32,12 @@ app.use(
 // });
 
 // ENDPOINTS \\
+
+// POST ENDPOINTS \\
+
+app.post("/api/posts", postCtrl.makePost);
+
+// COMMENT ENDPOINTS \\
 
 //NODEMAILER \\
 app.post("/api/send", nmlrCtrl.nodemailer);
