@@ -2,8 +2,10 @@ import React from 'react';
 import './PostDisplay.css'
 
 const PostDisplay = () => {
+
+  
   return (
-    <div>
+    <div className="Post-Display">
       post display
     </div>
   );
