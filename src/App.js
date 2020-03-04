@@ -2,7 +2,7 @@ import React from "react";
 import routes from "./routes.js";
 import { withRouter } from "react-router-dom";
 import Header from "./components/header-footer/Header";
-import Footer from "./components/header-footer/footer";
+import Footer from "./components/header-footer/Footer";
 import "./App.css";
 
 function App(props) {
