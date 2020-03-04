@@ -1,13 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import routes from "./routes.js";
+import { withRouter } from "react-router-dom";
+import Header from "./components/header-footer/Header";
+import Footer from "./components/header-footer/Footer";
+import "./App.css";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      this is the app yeah
+      <div className="body">
+        {props.location.pathname === "/" ||
+        props.location.pathname === "/register" ? null : (
+          <Header />
+        )}
+        {routes}
+      </div>
+      {props.location.pathname === "/" ||
+      props.location.pathname === "/register" ? null : (
+        <Footer />
+      )}
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
