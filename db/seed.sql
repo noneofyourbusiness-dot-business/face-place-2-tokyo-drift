@@ -14,7 +14,8 @@ CREATE TABLE user_info (
   first_name VARCHAR(25),
   last_name VARCHAR(35),
   cover_pic TEXT,
-  prof_pic TEXT user_id INT REFERENCES users(user_id)
+  prof_pic TEXT,
+  user_id INT REFERENCES users(user_id)
 );
 CREATE TABLE extra_info (
   extra_info_id SERIAL PRIMARY KEY,
@@ -52,7 +53,8 @@ CREATE TABLE comments (
   com_id SERIAL PRIMARY KEY,
   com_cont TEXT,
   post_time TIMESTAMPTZ,
-  post_id INT REFERENCES posts(post_id) user_id INT REFERENCES users(user_id)
+  post_id INT REFERENCES posts(post_id),
+  user_id INT REFERENCES users(user_id)
 );
 CREATE TABLE comment_img (
   comment_img_id SERIAL PRIMARY KEY,
