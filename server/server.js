@@ -2,15 +2,11 @@ require("dotenv").config();
 const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
+const authCtrl = require("./controllers/authController.js");
+const nmlrCtrl = require("./controllers/nodemailerController.js");
+const s3Ctrl = require("./controllers/s3Controller.js");
 
-const {
-  SESSION_SECRET,
-  S3_BUCKET,
-  AWS_ACCESS_KEY_ID,
-  AWS_SECRET_ACCESS_KEY,
-  SERVER_PORT,
-  CONNECTION_STRING
-} = process.env;
+const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
 
 const app = express();
 
@@ -27,6 +23,7 @@ app.use(
     }
   })
 );
+// HOSTING \\
 // app.use(express.static(`${__dirname}/../build`));
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, '../build/index.html'));
@@ -34,7 +31,13 @@ app.use(
 
 // ENDPOINTS \\
 
+//NODEMAILER \\
+app.post("/api/send", nmlrCtrl.nodemailer);
 
+// AWS S3 \\
+app.get("/sign-s3", s3Ctrl.run);
+
+// MASSIVE \\
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
   console.log("TAC-COM ONLINE");
