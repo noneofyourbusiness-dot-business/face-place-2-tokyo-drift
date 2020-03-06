@@ -1,7 +1,10 @@
-// USER TABLES
-
-CREATE TABLE users (user_id SERIAL PRIMARY KEY);
-
+/ / USER TABLES \ \
+CREATE TABLE users (
+  user_id SERIAL PRIMARY KEY,
+  first_name VARCHAR(25),
+  last_name VARCHAR(35),
+  prof_pic TEXT,
+);
 CREATE TABLE user_verif (
   verif_id SERIAL PRIMARY KEY,
   email VARCHAR(60),
@@ -11,13 +14,7 @@ CREATE TABLE user_verif (
 );
 CREATE TABLE user_info (
   info_id SERIAL PRIMARY KEY,
-  first_name VARCHAR(25),
-  last_name VARCHAR(35),
   cover_pic TEXT,
-  prof_pic TEXT user_id INT REFERENCES users(user_id)
-);
-CREATE TABLE extra_info (
-  extra_info_id SERIAL PRIMARY KEY,
   bio VARCHAR,
   user_id INT REFERENCES users(user_id)
 );
@@ -31,8 +28,12 @@ CREATE TABLE friends (
   user_id INT REFERENCES users(user_id),
   friend_id INT REFERENCES users(user_id)
 );
-
-// POST TABLES
+CREATE TABLE albums (
+  album_id SERIAL PRIMARY KEY,
+  album_name VARCHAR(25),
+  user_id INT REFERENCES users(user_id)
+);
+/ / POST TABLES \ \
 
 CREATE TABLE posts (
   post_id SERIAL PRIMARY KEY,
@@ -42,25 +43,25 @@ CREATE TABLE posts (
 );
 CREATE TABLE post_img (
   post_img_id SERIAL PRIMARY KEY,
-  img TEXT, 
+  img TEXT,
   post_id INT REFERENCES posts(post_id)
+  user_id INT REFERENCES users(user_id)
 );
-
-// COMMENT TABLES 
+/ / COMMENT TABLES \ \
 
 CREATE TABLE comments (
   com_id SERIAL PRIMARY KEY,
   com_cont TEXT,
   post_time TIMESTAMPTZ,
-  post_id INT REFERENCES posts(post_id) user_id INT REFERENCES users(user_id)
+  post_id INT REFERENCES posts(post_id),
+  user_id INT REFERENCES users(user_id)
 );
 CREATE TABLE comment_img (
   comment_img_id SERIAL PRIMARY KEY,
   img TEXT,
   com_id INT REFERENCES comments(com_id)
 );
-
-// CHAT TABLES 
+/ / CHAT TABLES \ \
 
 CREATE TABLE chat (
   chat_id SERIAL PRIMARY KEY,
