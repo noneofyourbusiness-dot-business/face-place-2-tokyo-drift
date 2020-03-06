@@ -1,9 +1,10 @@
 / / USER TABLES \ \
+
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
   first_name VARCHAR(25),
   last_name VARCHAR(35),
-  prof_pic TEXT,
+  prof_pic TEXT
 );
 CREATE TABLE user_verif (
   verif_id SERIAL PRIMARY KEY,
@@ -44,7 +45,7 @@ CREATE TABLE posts (
 CREATE TABLE post_img (
   post_img_id SERIAL PRIMARY KEY,
   img TEXT,
-  post_id INT REFERENCES posts(post_id)
+  post_id INT REFERENCES posts(post_id),
   user_id INT REFERENCES users(user_id)
 );
 / / COMMENT TABLES \ \
