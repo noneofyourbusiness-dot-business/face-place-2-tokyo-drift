@@ -5,6 +5,7 @@ const session = require("express-session");
 const authCtrl = require("./controllers/authController.js");
 const nmlrCtrl = require("./controllers/nodemailerController.js");
 const s3Ctrl = require("./controllers/s3Controller.js");
+const lRCtrl = require("./controllers/loginRegisterController.js");
 const postCtrl = require("./controllers/postController.js");
 const comCtrl = require ("./controllers/comController.js");
 
@@ -32,14 +33,14 @@ app.use(
 // });
 
 // ENDPOINTS \\
-
+// LOGIN - REGISTER \\
+app.post("/api/register", lRCtrl.register, nmlrCtrl.nodemailer)
 // POST ENDPOINTS \\
-
 app.post("/api/posts", postCtrl.makePost);
 
 // COMMENT ENDPOINTS \\
 
-//NODEMAILER \\
+// NODEMAILER \\
 app.post("/api/send", nmlrCtrl.nodemailer);
 
 // AWS S3 \\

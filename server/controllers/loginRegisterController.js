@@ -22,37 +22,66 @@ module.exports = {
           prof_pic: profilePic
         })
         .catch(err => {
-          res
-            .status(500)
-            .send({
-              err,
-              errorMessage: "Something went wrong in the add user function"
-            });
+          res.status(500).send({
+            err,
+            errorMessage: "Something went wrong in the add user function"
+          });
           console.log({
             err,
             errorMessage: "Something went wrong in the add user function"
           });
         });
-        const user_id = user[0].user_id;
-        console.log(user_id);
+      const user_id = user[0].user_id;
+      console.log(user_id);
 
-        db.login_register.register.add_hash({hash, user_id}).catch(err => {
-          res.status(500).send({ err, message: "something went wrong in the add hash function" });
-          console.log({ err, message: "something went wrong in the add hash function" });
+      db.login_register.register.add_hash({ hash, user_id }).catch(err => {
+        res
+          .status(500)
+          .send({
+            err,
+            message: "something went wrong in the add hash function"
+          });
+        console.log({
+          err,
+          message: "something went wrong in the add hash function"
+        });
+      });
+
+      db.login_register.register
+        .create_user_verif({ email, user_id })
+        .catch(err => {
+          res
+            .status(500)
+            .send({
+              err,
+              message:
+                "something went wrong in the create user verification function"
+            });
+          console.log({
+            err,
+            message:
+              "something went wrong in the crate user verification function"
+          });
         });
 
-        db.login_register.register.create_user_verif({email, user_id}).catch(err => {
-          res.status(500).send({ err, message: "something went wrong in the create user verification function" });
-          console.log({ err, message: "something went wrong in the crate user verification function" });
+      db.login_register.register.create_user_info(user_id).catch(err => {
+        res
+          .status(500)
+          .send({
+            err,
+            message: "something went wrong in the create user info function"
+          });
+        console.log({
+          err,
+          message: "something went wrong in the create user info function"
         });
-
-        db.login_register.register.create_user_info(user_id).catch(err => {
-          res.status(500).send({ err, message: "something went wrong in the create user info function" });
-          console.log({ err, message: "something went wrong in the create user info function" });
+      });
+      res
+        .status(200)
+        .send({
+          message: `user ${firstName} ${lastName} created. Please check your email for an email verification link`
         });
-        res.status(200).send({message: `user ${firstName} ${lastName} created. Please check your email for an email verification link`})
-        next()
+      next();
     }
-    
   }
 };
