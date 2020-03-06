@@ -28,6 +28,11 @@ CREATE TABLE friends (
   user_id INT REFERENCES users(user_id),
   friend_id INT REFERENCES users(user_id)
 );
+CREATE TABLE albums (
+  album_id SERIAL PRIMARY KEY,
+  album_name VARCHAR(25),
+  user_id INT REFERENCES users(user_id)
+);
 / / POST TABLES \ \
 
 CREATE TABLE posts (
