@@ -7,6 +7,7 @@ module.exports = {
     const alreadyExists = await db.login_register.register
       .find_user(email)
       .catch(err => {
+        res.status(500).send({errorMessage: "error in the find user query."})
         console.log(err, "error in find user query");
       });
     if (alreadyExists[0]) {
@@ -64,7 +65,7 @@ module.exports = {
           });
         });
 
-      db.login_register.register.create_user_info(user_id).catch(err => {
+      db.login_register.register.create_user_info({cover_pic: "https://picsum.photos/1200/500",bio: "This user hasn't set up their Bio yet!", user_id}).catch(err => {
         res
           .status(500)
           .send({

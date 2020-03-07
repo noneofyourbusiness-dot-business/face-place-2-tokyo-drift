@@ -30,8 +30,6 @@ module.exports = {
       } else {
         console.log("Email Sent!!!");
       }
-    }).catch(err => {
-      console.log(err);
-    });
+    })
   }
 };
