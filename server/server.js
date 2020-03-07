@@ -34,8 +34,14 @@ app.use(
 // });
 
 // ENDPOINTS \\
+//! AUTH ENDPOINTS \\
+app.put("/api/emailverif/:id", authCtrl.emailVerif)
+app.get("/api/session", authCtrl.getUserSession)
+
 // LOGIN - REGISTER \\
 app.post("/api/register", lRCtrl.register, nmlrCtrl.nodemailer);
+app.post("/api/login", lRCtrl.login)
+app.delete("/api/logout", lRCtrl.logout);
 
 // USER ENDPOINTS \\
 app.get("/api/users", userCtrl.getAllUsers)
