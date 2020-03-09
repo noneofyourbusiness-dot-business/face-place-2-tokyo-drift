@@ -33,8 +33,12 @@ module.exports = {
       .then(result => {
         if (result === true) {
           res.status(200).send({ result, message: "Your email is already verified" });
+          console.log(result, 'result hit');
+          
         } else if (result === false) {
           next();
+          console.log('next hit');
+          
         }
       })
       .catch(err => {

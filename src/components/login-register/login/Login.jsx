@@ -14,6 +14,20 @@ class Login extends Component {
       password: ""
     };
   }
+
+  componentDidMount(){
+    // this.checkSession()
+  }
+
+// checkSession = () => {
+// axios.get('/api/session').then(res => {
+//   if (res.data.id){
+//     this.props.history.push("/home");
+//     window.location.reload();
+//   }
+// })
+// }
+
   login = () => {
     const {email, password} = this.state
     axios.post("/api/login", { email, password }).then(res => {
@@ -63,7 +77,7 @@ class Login extends Component {
         <p className = 'loginText'>Password</p>
         <input
           type="password"
-          placeholder="password"
+          placeholder="Password"
           onChange={e => this.handleChange("password", e.target.value)}
           value={this.state.password}
           onKeyPress={this.handleKeyPress}
