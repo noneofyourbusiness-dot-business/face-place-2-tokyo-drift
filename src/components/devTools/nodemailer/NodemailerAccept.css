@@ -1,4 +1,4 @@
-.login{
+.login-nm{
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -6,17 +6,17 @@
 	align-items: center;
   align-content: stretch;
   height: 100vh;
-  background-image: url(https://images.unsplash.com/photo-1582832172472-c1ce8ec9c3fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMDk0fQ&auto=format&fit=crop&w=2250&q=80);
+  background-image: url(https://images.unsplash.com/photo-1581896184337-1330180ac3e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=2251&q=80);
   width: 100vw;
   background-size: 100%, 100%;
   background-repeat: no-repeat;
 }
-.loginTitle{
+.loginTitle-nm{
   margin-bottom: 5%;
   color: #867162;
    /* rgba(80, 136, 173, 0.95); */
 }
-.login-form{
+.login-form-nm{
   background: rgba(219, 227, 231, 0.60);
   height: 45vh;
   width:30vw;
@@ -29,10 +29,10 @@
   color: rgb(79, 89, 95);
   border-radius: 8%;
 }
-.loginText{
+.loginText-nm{
   color: #867162;
 }
-.loginButton{
+.loginButton-nm{
 padding:10px;
 font-size: 18px;
 max-height: 100%;

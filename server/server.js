@@ -8,7 +8,7 @@ const s3Ctrl = require("./controllers/s3Controller.js");
 const lRCtrl = require("./controllers/loginRegisterController.js");
 const postCtrl = require("./controllers/postController.js");
 const comCtrl = require("./controllers/comController.js");
-const userCtrl = require('./controllers/userController.js')
+const userCtrl = require("./controllers/userController.js");
 
 const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
 
@@ -35,16 +35,17 @@ app.use(
 
 // ENDPOINTS \\
 //! AUTH ENDPOINTS \\
-app.put("/api/emailverif/:id", authCtrl.emailVerif)
-app.get("/api/session", authCtrl.getUserSession)
+app.put("/api/emailverif/:id", authCtrl.emailVerif, lRCtrl.login);
+app.get("/api/pre-check/:email", authCtrl.preCheckEmail);
+app.get("/api/session", authCtrl.getUserSession);
 
 // LOGIN - REGISTER \\
 app.post("/api/register", lRCtrl.register, nmlrCtrl.nodemailer);
-app.post("/api/login", lRCtrl.login)
+app.post("/api/login", lRCtrl.login);
 app.delete("/api/logout", lRCtrl.logout);
 
 // USER ENDPOINTS \\
-app.get("/api/users", userCtrl.getAllUsers)
+app.get("/api/users", userCtrl.getAllUsers);
 
 // POST ENDPOINTS \\
 app.post("/api/posts", postCtrl.makePost);

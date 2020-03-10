@@ -10,13 +10,15 @@ function App(props) {
     <div className="App">
       <div className="body">
         {props.location.pathname === "/" ||
-        props.location.pathname === "/register" ? null : (
+        props.location.pathname === "/register" ||
+        props.location.pathname === "/nodemailer/accept" ? null : (
           <Header />
         )}
         {routes}
       </div>
       {props.location.pathname === "/" ||
-      props.location.pathname === "/register" ? null : (
+      props.location.pathname === "/register" ||
+      props.location.pathname === "/nodemailer/accept" ? null : (
         <Footer />
       )}
     </div>
