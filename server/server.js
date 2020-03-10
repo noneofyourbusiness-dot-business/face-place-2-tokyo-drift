@@ -36,7 +36,7 @@ app.use(
 // ENDPOINTS \\
 //! AUTH ENDPOINTS \\
 app.put("/api/emailverif/:id", authCtrl.emailVerif, lRCtrl.login);
-app.get("/api/pre-check", authCtrl.preCheckEmail);
+app.get("/api/pre-check/:email", authCtrl.preCheckEmail);
 app.get("/api/session", authCtrl.getUserSession);
 
 // LOGIN - REGISTER \\

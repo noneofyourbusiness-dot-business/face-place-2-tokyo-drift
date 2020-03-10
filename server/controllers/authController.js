@@ -27,18 +27,17 @@ module.exports = {
   },
   preCheckEmail: (req, res, next) => {
     const db = req.app.get("db");
-    const { email }= req.body;
+    const { email } = req.params;
+    console.log(email, 'email');
     
     db.login_register.email_verif.check_verif(email)
       .then(result => {
-        if (result === true) {
-          res.status(200).send({ result, message: "Your email is already verified" });
-          console.log(result, 'result hit');
-          
-        } else if (result === false) {
+        if (result) {
+          console.log(result, 'result');
+          res.status(200).send(result);
+        } else if (!result) {
           next();
           console.log('next hit');
-          
         }
       })
       .catch(err => {

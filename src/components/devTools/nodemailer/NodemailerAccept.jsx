@@ -10,19 +10,20 @@ class NodemailerAccept extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
+      email: "test",
+      password: "test",
       user_id: 0
     };
   }
 
   confirm = () => {
-    const {email, password, user_id} = this.state
-    console.log('confirm hit');
-    
-    axios.get("/api/pre-check", email).then(res => {
-      const user_id = res.data[0].user_id;
-      console.log(res.data[0], 'hit');
+    const {email, password, user_id} = this.state;
+
+    axios.get(`/api/pre-check/${email}`).then(res => {
+      // console.log(this.state);
+      console.log(res.data, 'res.data');
+      
+      const user_id = res.data.user_id;
       this.setState({
         user_id: user_id
       });
