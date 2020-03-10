@@ -1,0 +1,49 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  height: 100vh;
+  background-image: url(https://helios-devmountain-group-project.s3-us-west-1.amazonaws.com/jack-millard-zjyP-UYI-ko-unsplash.jpg);
+  width: 100vw;
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+}
+/* https://helios-devmountain-group-project.s3-us-west-1.amazonaws.com/jack-millard-j7uReBfOSfo-unsplash.jpg */
+.register .form {
+  background: rgba(219, 227, 231, 0.75);
+  height: 45vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  color: rgb(79, 89, 95);
+  border-radius: 8%;
+}
+.top-bit {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  margin: 5px;
+}
+.register-right {
+  margin-left: 5px;
+}
+.register-left {
+  margin-right: 5px;
+}
+.register-button {
+  padding: 10px;
+  font-size: 18px;
+  background: rgba(219, 227, 231, 0.95);
+  margin-bottom: 5px;
+}
+
