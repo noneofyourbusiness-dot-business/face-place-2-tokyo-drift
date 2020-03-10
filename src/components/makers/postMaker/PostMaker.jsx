@@ -10,7 +10,7 @@ const PostMaker = () => {
 
   return (
     <div className="Post-Maker">
-
+      
       <div className="Post-Add-Image">
         {imageView
         ?

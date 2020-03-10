@@ -34,6 +34,12 @@ CREATE TABLE albums (
   album_name VARCHAR(25),
   user_id INT REFERENCES users(user_id)
 );
+CREATE TABLE album_img (
+  album_img_id SERIAL PRIMARY KEY,
+  album_img TEXT,
+  album_id INT REFERENCES albums(album_id)
+);
+
 / / POST TABLES \ \
 
 CREATE TABLE posts (
@@ -45,9 +51,9 @@ CREATE TABLE posts (
 CREATE TABLE post_img (
   post_img_id SERIAL PRIMARY KEY,
   img TEXT,
-  post_id INT REFERENCES posts(post_id),
-  user_id INT REFERENCES users(user_id)
+  post_id INT REFERENCES posts(post_id)
 );
+
 / / COMMENT TABLES \ \
 
 CREATE TABLE comments (
@@ -62,6 +68,7 @@ CREATE TABLE comment_img (
   img TEXT,
   com_id INT REFERENCES comments(com_id)
 );
+
 / / CHAT TABLES \ \
 
 CREATE TABLE chat (
