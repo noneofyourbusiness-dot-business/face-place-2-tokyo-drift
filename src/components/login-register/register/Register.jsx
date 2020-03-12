@@ -9,13 +9,24 @@ class Register extends Component {
     super(props);
     this.state = {
       email: "",
-      first_name: "",
-      last_name: "",
+      firstName: "",
+      lastName: "",
+      profilePic: '',
       password: "",
       password2: ""
     };
-  };
+  }
 
+  async finalizeInator() {
+    const { email, firstName, lastName, profilePic, password, password2 } = this.state;
+    if (password === password2) {
+      if (email && firstName && lastName && profilePic && password){
+        await axios.post('/api/register', {email, firstName, lastName, profilePic, password}).then()
+      }
+    } else {
+      Swal.fire({message: 'Passwords Do Not Match'})
+    }
+  }
 
   handleChange = (key, value) => {
     this.setState({
