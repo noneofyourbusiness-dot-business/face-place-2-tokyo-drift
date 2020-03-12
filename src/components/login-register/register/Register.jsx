@@ -14,8 +14,12 @@ class Register extends Component {
       password: "",
       password2: ""
     };
-  };
+  }
 
+  async finalizeInator() {
+    const { email, first_name, last_name, password, password2 } = this.state;
+    
+  }
 
   handleChange = (key, value) => {
     this.setState({
